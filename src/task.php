@@ -1451,7 +1451,10 @@ class task
 	{
 		try
 		{
-			ob_start();
+			if((!(defined('STDIN')&&defined('STDOUT')&&defined('STDERR')))&&(!function_exists('fastcgi_finish_request')))
+			{
+				ob_start();
+			}
 			$task=$pretask();
 			if($task && $task instanceof closure)
 			{
