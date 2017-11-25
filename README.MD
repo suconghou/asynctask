@@ -3,6 +3,17 @@
 
 run php async task
 
+
+```
+task::run($fun,$logfile,$timeout);
+```
+
+$fun will be called sync and should return a closure which will be called async
+
+$logfile default value `/dev/null`  . your closure output and errors will be send to this file
+
+$timeout default value `3600`
+
 ```
 
 require 'dist.php';
@@ -43,4 +54,4 @@ task::bin('/usr/local/bin/php')
 ```
 
 
-use closure based on https://github.com/opis/closure  version 3.0.1
+use closure based on https://github.com/opis/closure  version 3.0.7
